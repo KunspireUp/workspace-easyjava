@@ -1,17 +1,3 @@
-<body>
-    <div>
-        <h1 align="center"> 
-            <a href="https://sunguoqi.com/"> 
-                <img src="https://readme-typing-svg.herokuapp.com/?lines=MyBatis，代码生成工具!&center=true&size=27"> 
-            </a>
-        </h1>
-    </div>
-    <div align="center">
-    <h2>👋 这是一个 MyBatis 数据库操作代码生成工具</h2>
-    <h4>🔭 可以根据数据库生成基础的 Spring mybaits 项目框架🤔</h4>
-    <div class="divider"></div> <!-- 分割线 -->
-</body>
-
 # Easyjava mybatis 代码生成工具
 
 type: Post
