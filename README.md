@@ -64,7 +64,7 @@ D:.
 
 3.删除 easyjava-demo 文件夹（之前生成好的，也可以保留）
 
-![Untitled](Easyjava%20mybatis%20%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%20f7d4e1bc6a9d468582fdbad8cdec3eb7/Untitled.png)
+[![Untitled](Easyjava%20mybatis%20%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7%20f7d4e1bc6a9d468582fdbad8cdec3eb7/Untitled.png)](https://www.notion.so/Easyjava-mybatis-f7d4e1bc6a9d468582fdbad8cdec3eb7?pvs=4#f38a8e1f11f74a3c8ac0a868c5aad58b)
 
 1. 在 IDEA 中找到 application.properties 这个文件，修改你数据库的配置
 
