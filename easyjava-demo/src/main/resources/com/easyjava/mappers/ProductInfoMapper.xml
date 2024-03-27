@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.easyjava.mappers.ProductInfoMapper">
+	<!-- 实体映射-->
+	<resultMap id="base_result_map" type="com.easyjava.entity.po.ProductInfo">
+		<!--自增ID-->
+		<id column="id" property="id"/>
+		<!--公司ID-->
+		<result column="company_id" property="companyId"/>
+		<!--商品编号-->
+		<result column="code" property="code"/>
+		<!--商品名称-->
+		<result column="product_name" property="productName"/>
+		<!--价格-->
+		<result column="price" property="price"/>
+		<!--sku类型-->
+		<result column="sku_type" property="skuType"/>
+		<!--颜色类型-->
+		<result column="color_type" property="colorType"/>
+		<!--创建时间-->
+		<result column="create_time" property="createTime"/>
+		<!--创建日期-->
+		<result column="create_date" property="createDate"/>
+		<!--库存-->
+		<result column="stock" property="stock"/>
+		<!--状态-->
+		<result column="status" property="status"/>
+	</resultMap>
+
+	<!-- 通用查询结果列 -->
+	<sql id="base_column_list">
+		id,company_id,code,product_name,price,sku_type,color_type,create_time,create_date,stock,status
+	</sql>
+
+	<!-- 基础查询条件 -->
+	<sql id="base_query_condition">
+		<if test=" query.id != null">
+			and id = #{query.id}
+		</if>
+		<if test=" query.companyId != null and query.companyId!= ''">
+			and id = #{query.companyId}
+		</if>
+		<if test=" query.code != null and query.code!= ''">
+			and id = #{query.code}
+		</if>
+		<if test=" query.productName != null and query.productName!= ''">
+			and id = #{query.productName}
+		</if>
+		<if test=" query.price != null">
+			and id = #{query.price}
+		</if>
+		<if test=" query.skuType != null">
+			and id = #{query.skuType}
+		</if>
+		<if test=" query.colorType != null">
+			and id = #{query.colorType}
+		</if>
+		<if test=" query.createTime != null">
+			and id = #{query.createTime}
+		</if>
+		<if test=" query.createDate != null">
+			and id = #{query.createDate}
+		</if>
+		<if test=" query.stock != null">
+			and id = #{query.stock}
+		</if>
+		<if test=" query.status != null">
+			and id = #{query.status}
+		</if>
+	</sql>
+
+	<!-- 扩展查询条件 -->
+	<sql id="base_query_condition_extend">
+		<if test=" query.companyIdFuzzy != null and query.companyIdFuzzy!= null ">
+			and company_id like concat('%', #{query.companyIdFuzzy}, '%')
+		</if>
+		<if test=" query.codeFuzzy != null and query.codeFuzzy!= null ">
+			and code like concat('%', #{query.codeFuzzy}, '%')
+		</if>
+		<if test=" query.productNameFuzzy != null and query.productNameFuzzy!= null ">
+			and product_name like concat('%', #{query.productNameFuzzy}, '%')
+		</if>
+		<if test=" query.createTimeStart != null and query.createTimeStart!= null ">
+			<![CDATA[ and create_time >= str_to_date(#{query.createTimeStart}, '%Y-%m-%d') ]]>
+		</if>
+		<if test=" query.createTimeEnd != null and query.createTimeEnd!= null ">
+			<![CDATA[ and create_time < date_sub(str_to_date(#{query.createTimeEnd}, '%Y-%m-%d'), interval -1 day) ]]>
+		</if>
+		<if test=" query.createDateStart != null and query.createDateStart!= null ">
+			<![CDATA[ and create_date >= str_to_date(#{query.createDateStart}, '%Y-%m-%d') ]]>
+		</if>
+		<if test=" query.createDateEnd != null and query.createDateEnd!= null ">
+			<![CDATA[ and create_date < date_sub(str_to_date(#{query.createDateEnd}, '%Y-%m-%d'), interval -1 day) ]]>
+		</if>
+	</sql>
+
+	<!-- 通用查询条件 -->
+	<sql id="query_condition">
+		<where>
+			<include refid="base_query_condition"/>
+			<include refid="base_query_condition_extend"/>
+		</where>
+	</sql>
+
+	<!-- 查询列表 -->
+	<select id="selectList" resultMap="base_result_map">
+		SELECT 
+		<include refid="base_column_list"/>
+			FROM tb_product_info
+		<include refid="query_condition"/>
+		<if test="query.orderBy != null">
+			order by ${query.orderBy}
+		</if>
+		<if test="query.simplePage != null">
+			limit ${query.simplePage.start}, ${query.simplePage.end}
+		</if>
+	</select>
+
+	<!-- 查询数量 -->
+	<select id="selectCount" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM tb_product_info
+		<include refid="query_condition"/>
+	</select>
+
+	<!-- 单条插入 (匹配有值的字段) -->
+	<insert id="insert" parameterType="com.easyjava.entity.po.ProductInfo">
+		<selectKey keyProperty="bean.id" resultType="Integer" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO tb_product_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				id,
+			</if>
+			<if test="bean.companyId != null">
+				company_id,
+			</if>
+			<if test="bean.code != null">
+				code,
+			</if>
+			<if test="bean.productName != null">
+				product_name,
+			</if>
+			<if test="bean.price != null">
+				price,
+			</if>
+			<if test="bean.skuType != null">
+				sku_type,
+			</if>
+			<if test="bean.colorType != null">
+				color_type,
+			</if>
+			<if test="bean.createTime != null">
+				create_time,
+			</if>
+			<if test="bean.createDate != null">
+				create_date,
+			</if>
+			<if test="bean.stock != null">
+				stock,
+			</if>
+			<if test="bean.status != null">
+				status,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				#{bean.id},
+			</if>
+			<if test="bean.companyId != null">
+				#{bean.companyId},
+			</if>
+			<if test="bean.code != null">
+				#{bean.code},
+			</if>
+			<if test="bean.productName != null">
+				#{bean.productName},
+			</if>
+			<if test="bean.price != null">
+				#{bean.price},
+			</if>
+			<if test="bean.skuType != null">
+				#{bean.skuType},
+			</if>
+			<if test="bean.colorType != null">
+				#{bean.colorType},
+			</if>
+			<if test="bean.createTime != null">
+				#{bean.createTime},
+			</if>
+			<if test="bean.createDate != null">
+				#{bean.createDate},
+			</if>
+			<if test="bean.stock != null">
+				#{bean.stock},
+			</if>
+			<if test="bean.status != null">
+				#{bean.status},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 插入或者更新（匹配有值的字段） -->
+	<insert id="insertOrUpdate" parameterType="com.easyjava.entity.po.ProductInfo">
+		INSERT INTO tb_product_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				id,
+			</if>
+			<if test="bean.companyId != null">
+				company_id,
+			</if>
+			<if test="bean.code != null">
+				code,
+			</if>
+			<if test="bean.productName != null">
+				product_name,
+			</if>
+			<if test="bean.price != null">
+				price,
+			</if>
+			<if test="bean.skuType != null">
+				sku_type,
+			</if>
+			<if test="bean.colorType != null">
+				color_type,
+			</if>
+			<if test="bean.createTime != null">
+				create_time,
+			</if>
+			<if test="bean.createDate != null">
+				create_date,
+			</if>
+			<if test="bean.stock != null">
+				stock,
+			</if>
+			<if test="bean.status != null">
+				status,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				#{bean.id},
+			</if>
+			<if test="bean.companyId != null">
+				#{bean.companyId},
+			</if>
+			<if test="bean.code != null">
+				#{bean.code},
+			</if>
+			<if test="bean.productName != null">
+				#{bean.productName},
+			</if>
+			<if test="bean.price != null">
+				#{bean.price},
+			</if>
+			<if test="bean.skuType != null">
+				#{bean.skuType},
+			</if>
+			<if test="bean.colorType != null">
+				#{bean.colorType},
+			</if>
+			<if test="bean.createTime != null">
+				#{bean.createTime},
+			</if>
+			<if test="bean.createDate != null">
+				#{bean.createDate},
+			</if>
+			<if test="bean.stock != null">
+				#{bean.stock},
+			</if>
+			<if test="bean.status != null">
+				#{bean.status},
+			</if>
+		</trim>
+		ON DUPLICATE KEY UPDATE
+		<trim prefix="" suffix="" suffixOverrides=",">
+			<if test="bean.companyId != null">
+				company_id = VALUES(company_id),
+			</if>
+			<if test="bean.productName != null">
+				product_name = VALUES(product_name),
+			</if>
+			<if test="bean.price != null">
+				price = VALUES(price),
+			</if>
+			<if test="bean.createTime != null">
+				create_time = VALUES(create_time),
+			</if>
+			<if test="bean.createDate != null">
+				create_date = VALUES(create_date),
+			</if>
+			<if test="bean.stock != null">
+				stock = VALUES(stock),
+			</if>
+			<if test="bean.status != null">
+				status = VALUES(status),
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 添加（批量添加） -->
+	<insert id="insertBatch" parameterType="com.easyjava.entity.po.ProductInfo" >
+		INSERT INTO tb_product_info(company_id, code, product_name, price, sku_type, color_type, create_time, create_date, stock, status) values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.companyId}, #{item.code}, #{item.productName}, #{item.price}, #{item.skuType}, #{item.colorType}, #{item.createTime}, #{item.createDate}, #{item.stock}, #{item.status})
+		</foreach>
+	</insert>
+
+	<!-- 批量新增修改（批量插入） -->
+	<insert id="insertOrUpdateBatch" parameterType="com.easyjava.entity.po.ProductInfo" >
+		INSERT INTO tb_product_info(company_id, code, product_name, price, sku_type, color_type, create_time, create_date, stock, status) values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.companyId}, #{item.code}, #{item.productName}, #{item.price}, #{item.skuType}, #{item.colorType}, #{item.createTime}, #{item.createDate}, #{item.stock}, #{item.status})
+		</foreach>
+		ON DUPLICATE KEY UPDATE
+		id =  VALUES(id),
+		company_id =  VALUES(company_id),
+		code =  VALUES(code),
+		product_name =  VALUES(product_name),
+		price =  VALUES(price),
+		sku_type =  VALUES(sku_type),
+		color_type =  VALUES(color_type),
+		create_time =  VALUES(create_time),
+		create_date =  VALUES(create_date),
+		stock =  VALUES(stock),
+		status =  VALUES(status)
+	</insert>
+
+	<!-- 根据 Id 查询 -->
+	<select id="selectById" resultMap="base_result_map">
+		select
+		<include refid="base_column_list"/> 
+		from tb_product_info where id =#{id}
+	</select>
+
+	<!-- 根据 Id 更新 -->
+	<update id="updateById" parameterType="com.easyjava.entity.po.ProductInfo">
+		update tb_product_info
+		<set>
+			<if test="bean.id != null">
+				id= #{bean.id},
+			</if>
+			<if test="bean.companyId != null">
+				company_id= #{bean.companyId},
+			</if>
+			<if test="bean.code != null">
+				code= #{bean.code},
+			</if>
+			<if test="bean.productName != null">
+				product_name= #{bean.productName},
+			</if>
+			<if test="bean.price != null">
+				price= #{bean.price},
+			</if>
+			<if test="bean.skuType != null">
+				sku_type= #{bean.skuType},
+			</if>
+			<if test="bean.colorType != null">
+				color_type= #{bean.colorType},
+			</if>
+			<if test="bean.createTime != null">
+				create_time= #{bean.createTime},
+			</if>
+			<if test="bean.createDate != null">
+				create_date= #{bean.createDate},
+			</if>
+			<if test="bean.stock != null">
+				stock= #{bean.stock},
+			</if>
+			<if test="bean.status != null">
+				status= #{bean.status},
+			</if>
+		</set>
+		where id =#{id}
+	</update>
+
+	<!-- 根据 Id 删除 -->
+	<delete id="deleteById">
+		delete from tb_product_info where id =#{id}
+	</delete>
+
+	<!-- 根据 Code 查询 -->
+	<select id="selectByCode" resultMap="base_result_map">
+		select
+		<include refid="base_column_list"/> 
+		from tb_product_info where code =#{code}
+	</select>
+
+	<!-- 根据 Code 更新 -->
+	<update id="updateByCode" parameterType="com.easyjava.entity.po.ProductInfo">
+		update tb_product_info
+		<set>
+			<if test="bean.id != null">
+				id= #{bean.id},
+			</if>
+			<if test="bean.companyId != null">
+				company_id= #{bean.companyId},
+			</if>
+			<if test="bean.code != null">
+				code= #{bean.code},
+			</if>
+			<if test="bean.productName != null">
+				product_name= #{bean.productName},
+			</if>
+			<if test="bean.price != null">
+				price= #{bean.price},
+			</if>
+			<if test="bean.skuType != null">
+				sku_type= #{bean.skuType},
+			</if>
+			<if test="bean.colorType != null">
+				color_type= #{bean.colorType},
+			</if>
+			<if test="bean.createTime != null">
+				create_time= #{bean.createTime},
+			</if>
+			<if test="bean.createDate != null">
+				create_date= #{bean.createDate},
+			</if>
+			<if test="bean.stock != null">
+				stock= #{bean.stock},
+			</if>
+			<if test="bean.status != null">
+				status= #{bean.status},
+			</if>
+		</set>
+		where code =#{code}
+	</update>
+
+	<!-- 根据 Code 删除 -->
+	<delete id="deleteByCode">
+		delete from tb_product_info where code =#{code}
+	</delete>
+
+	<!-- 根据 SkuTypeAndColorType 查询 -->
+	<select id="selectBySkuTypeAndColorType" resultMap="base_result_map">
+		select
+		<include refid="base_column_list"/> 
+		from tb_product_info where sku_type =#{skuType} and color_type =#{colorType}
+	</select>
+
+	<!-- 根据 SkuTypeAndColorType 更新 -->
+	<update id="updateBySkuTypeAndColorType" parameterType="com.easyjava.entity.po.ProductInfo">
+		update tb_product_info
+		<set>
+			<if test="bean.id != null">
+				id= #{bean.id},
+			</if>
+			<if test="bean.companyId != null">
+				company_id= #{bean.companyId},
+			</if>
+			<if test="bean.code != null">
+				code= #{bean.code},
+			</if>
+			<if test="bean.productName != null">
+				product_name= #{bean.productName},
+			</if>
+			<if test="bean.price != null">
+				price= #{bean.price},
+			</if>
+			<if test="bean.skuType != null">
+				sku_type= #{bean.skuType},
+			</if>
+			<if test="bean.colorType != null">
+				color_type= #{bean.colorType},
+			</if>
+			<if test="bean.createTime != null">
+				create_time= #{bean.createTime},
+			</if>
+			<if test="bean.createDate != null">
+				create_date= #{bean.createDate},
+			</if>
+			<if test="bean.stock != null">
+				stock= #{bean.stock},
+			</if>
+			<if test="bean.status != null">
+				status= #{bean.status},
+			</if>
+		</set>
+		where sku_type =#{skuType} and color_type =#{colorType}
+	</update>
+
+	<!-- 根据 SkuTypeAndColorType 删除 -->
+	<delete id="deleteBySkuTypeAndColorType">
+		delete from tb_product_info where sku_type =#{skuType} and color_type =#{colorType}
+	</delete>
+
+</mapper>

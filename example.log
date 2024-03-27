@@ -1,0 +1,55 @@
+2024-03-07 16:55:01,563 INFO main com.easyjava.builder.BuildTable.getTable(BuildTable.java:82) - tableInfo:{"beanName":"ProductInfo","beanParamName":"ProductInfoQuery","comment":"商品信息","fieldList":[{"autoIncrement":true,"comment":"自增ID","fieldName":"id","javaType":"Integer","propertyName":"id","sqlType":"int"},{"autoIncrement":false,"comment":"公司ID","fieldName":"company_id","javaType":"String","propertyName":"companyId","sqlType":"varchar"},{"autoIncrement":false,"comment":"商品编号","fieldName":"code","javaType":"String","propertyName":"code","sqlType":"varchar"},{"autoIncrement":false,"comment":"商品名称","fieldName":"product_name","javaType":"String","propertyName":"productName","sqlType":"varchar"},{"autoIncrement":false,"comment":"价格","fieldName":"price","javaType":"BigDecimal","propertyName":"price","sqlType":"decimal"},{"autoIncrement":false,"comment":"sku类型","fieldName":"sku_type","javaType":"Integer","propertyName":"skuType","sqlType":"tinyint"},{"autoIncrement":false,"comment":"颜色类型","fieldName":"color_type","javaType":"Integer","propertyName":"colorType","sqlType":"tinyint"},{"autoIncrement":false,"comment":"创建时间","fieldName":"create_time","javaType":"Date","propertyName":"createTime","sqlType":"datetime"},{"autoIncrement":false,"comment":"创建日期","fieldName":"create_date","javaType":"Date","propertyName":"createDate","sqlType":"date"},{"autoIncrement":false,"comment":"库存","fieldName":"stock","javaType":"Long","propertyName":"stock","sqlType":"bigint"},{"autoIncrement":false,"comment":"状态","fieldName":"status","javaType":"Integer","propertyName":"status","sqlType":"tinyint"}],"haveBigDecimal":false,"haveDate":false,"haveDateTime":false,"keyIndexMap":{"PRIMARY":[{"autoIncrement":true,"comment":"自增ID","fieldName":"id","javaType":"Integer","propertyName":"id","sqlType":"int"}],"idx_code":[{"autoIncrement":false,"comment":"商品编号","fieldName":"code","javaType":"String","propertyName":"code","sqlType":"varchar"}],"idx_sku_color":[{"autoIncrement":false,"comment":"sku类型","fieldName":"sku_type","javaType":"Integer","propertyName":"skuType","sqlType":"tinyint"},{"autoIncrement":false,"comment":"颜色类型","fieldName":"color_type","javaType":"Integer","propertyName":"colorType","sqlType":"tinyint"}]},"tableName":"tb_product_info"}
+2024-03-07 17:01:45,816 INFO main com.easyjava.builder.BuildTable.getTable(BuildTable.java:85) - tableInfo:{"beanName":"ProductInfo","beanParamName":"ProductInfoQuery","comment":"商品信息","fieldList":[{"autoIncrement":true,"comment":"自增ID","fieldName":"id","javaType":"Integer","propertyName":"id","sqlType":"int"},{"autoIncrement":false,"comment":"公司ID","fieldName":"company_id","javaType":"String","propertyName":"companyId","sqlType":"varchar"},{"autoIncrement":false,"comment":"商品编号","fieldName":"code","javaType":"String","propertyName":"code","sqlType":"varchar"},{"autoIncrement":false,"comment":"商品名称","fieldName":"product_name","javaType":"String","propertyName":"productName","sqlType":"varchar"},{"autoIncrement":false,"comment":"价格","fieldName":"price","javaType":"BigDecimal","propertyName":"price","sqlType":"decimal"},{"autoIncrement":false,"comment":"sku类型","fieldName":"sku_type","javaType":"Integer","propertyName":"skuType","sqlType":"tinyint"},{"autoIncrement":false,"comment":"颜色类型","fieldName":"color_type","javaType":"Integer","propertyName":"colorType","sqlType":"tinyint"},{"autoIncrement":false,"comment":"创建时间","fieldName":"create_time","javaType":"Date","propertyName":"createTime","sqlType":"datetime"},{"autoIncrement":false,"comment":"创建日期","fieldName":"create_date","javaType":"Date","propertyName":"createDate","sqlType":"date"},{"autoIncrement":false,"comment":"库存","fieldName":"stock","javaType":"Long","propertyName":"stock","sqlType":"bigint"},{"autoIncrement":false,"comment":"状态","fieldName":"status","javaType":"Integer","propertyName":"status","sqlType":"tinyint"}],"haveBigDecimal":false,"haveDate":false,"haveDateTime":false,"keyIndexMap":{"PRIMARY":[{"$ref":"$.fieldList[0]"}],"idx_code":[{"$ref":"$.fieldList[2]"}],"idx_sku_color":[{"$ref":"$.fieldList[5]"},{"$ref":"$.fieldList[6]"}]},"tableName":"tb_product_info"}
+2024-03-09 00:04:25,917 ERROR main com.easyjava.builder.BuildTable.<clinit>(BuildTable.java:43) - 数据库连接失败
+java.lang.NullPointerException
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.easyjava.builder.BuildTable.<clinit>(BuildTable.java:40)
+	at com.easyjava.RunApplication.main(RunApplication.java:23)
+2024-03-09 00:04:25,921 ERROR main com.easyjava.builder.BuildTable.getTable(BuildTable.java:95) - 读取表失败
+java.lang.NullPointerException
+	at com.easyjava.builder.BuildTable.getTable(BuildTable.java:60)
+	at com.easyjava.RunApplication.main(RunApplication.java:23)
+2024-03-13 21:52:21,590 INFO main com.easyjava.builder.BuildPo.execute(BuildPo.java:160) - 创建 po 失败
+2024-03-13 21:52:44,258 INFO main com.easyjava.builder.BuildPo.execute(BuildPo.java:156) - 创建 po 失败
+2024-03-13 21:54:28,030 INFO main com.easyjava.builder.BuildPo.execute(BuildPo.java:161) - 创建 po 失败
+2024-03-13 21:56:56,956 INFO main com.easyjava.builder.BuildPo.execute(BuildPo.java:163) - 创建 po 失败
+2024-03-13 21:57:36,645 INFO main com.easyjava.builder.BuildPo.execute(BuildPo.java:162) - 创建 po 失败
+2024-03-14 01:19:42,359 INFO main com.easyjava.builder.BuildQuery.execute(BuildQuery.java:116) - 创建 po 失败
+2024-03-15 11:00:47,932 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:81) - 创建 mapper.xml 失败
+2024-03-15 11:01:20,325 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:81) - 创建 mapper.xml 失败
+2024-03-15 11:05:27,332 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:08:08,622 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:11:33,334 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:11:59,015 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:12:15,909 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:17:34,384 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:17:40,375 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:83) - 创建 mapper.xml 失败
+2024-03-15 11:19:22,807 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:19:36,274 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:20:13,454 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:23:41,047 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:25:22,904 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:26:06,498 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:26:27,126 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:26:36,422 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 11:26:54,116 INFO main com.easyjava.builder.BuildMapperXml.execute(BuildMapperXml.java:82) - 创建 mapper.xml 失败
+2024-03-15 19:29:46,474 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:51:20,553 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:52:02,474 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:52:15,109 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:52:54,098 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:53:34,468 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:55:05,164 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-15 20:55:21,273 INFO main com.easyjava.builder.BuildPo.execute(BuildMapper.java:96) - 创建 mappers 失败
+2024-03-26 21:11:23,001 ERROR main com.easyjava.builder.BuildTable.readFieldInfo(BuildTable.java:214) - 读取表失败
+java.lang.RuntimeException: 无法识别的类型int
+	at com.easyjava.builder.BuildTable.processJavaType(BuildTable.java:329)
+	at com.easyjava.builder.BuildTable.readFieldInfo(BuildTable.java:163)
+	at com.easyjava.builder.BuildTable.getTable(BuildTable.java:81)
+	at com.easyjava.RunApplication.main(RunApplication.java:15)
+2024-03-26 21:11:23,004 ERROR main com.easyjava.builder.BuildTable.getTable(BuildTable.java:98) - 读取表失败
+java.lang.NullPointerException
+	at com.easyjava.builder.BuildTable.getKeyIndexInfo(BuildTable.java:245)
+	at com.easyjava.builder.BuildTable.getTable(BuildTable.java:82)
+	at com.easyjava.RunApplication.main(RunApplication.java:15)
