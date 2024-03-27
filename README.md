@@ -7,10 +7,10 @@
         </h1>
     </div>
     <div align="center">
-    <h2>👋 Hi there, I'm a developer on Kunspire, Kunspire Upstream Xiaokun</h2>
-    <h4>🔭 Currently studying software engineering and self-learning programming 🤔</h4>
+    <h2>👋 这是一个 MyBatis 数据库操作代码生成工具</h2>
+    <h4>🔭 可以根据数据库生成基础的Spring mybaits 项目框架🤔</h4>
     <div class="divider"></div> <!-- 分割线 -->
-    <h2>👋 一名不知名的开发者，Kunspire 上游小坤 </h2>
+    <h2>项目部署</h2>
     <h4> 🔭软件工程专业，处于自学编程状态中🤔 </h4>
     <p></p>
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
