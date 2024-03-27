@@ -1,4 +1,4 @@
-# Easyjava mybatis 代码生成工具
+# mybatis generation tool | mybatis 生成工具
 
 ### 📝 使用方法
 
