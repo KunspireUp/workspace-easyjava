@@ -64,7 +64,9 @@ D:.
 
 3.删除 easyjava-demo 文件夹（之前生成好的，也可以保留）
 
-![目录](https://github.com/KunspireUp/workspace-easyjava/blob/main/Untitled.png)
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <img src="https://github.com/KunspireUp/workspace-easyjava/blob/main/Untitled.png" alt="目录结构">
+</div>
 
 1. 在 IDEA 中找到 application.properties 这个文件，修改你数据库的配置
 
