@@ -64,7 +64,7 @@ D:.
 
 3.删除 easyjava-demo 文件夹（之前生成好的，也可以保留）
 
-<div margin="center" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+<div align="center" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     <img src="https://github.com/KunspireUp/workspace-easyjava/blob/main/Untitled.png" alt="目录结构">
 </div>
 
