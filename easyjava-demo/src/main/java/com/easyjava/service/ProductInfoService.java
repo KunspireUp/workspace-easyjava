@@ -8,7 +8,7 @@ import com.easyjava.entity.query.ProductInfoQuery;
 /**
  * @Description: 商品信息 Service
  * @Author: false
- * @Date: 2024/05/10 17:47:42
+ * @Date: 2024/05/11 00:03:01
  */
 public interface ProductInfoService{
 

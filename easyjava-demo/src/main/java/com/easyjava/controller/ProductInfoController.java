@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * @Description: 商品信息 Controller
  * @Author: false
- * @Date: 2024/05/10 17:47:42
+ * @Date: 2024/05/11 00:03:01
  */
 @RestController
 @RequestMapping("/productInfo")

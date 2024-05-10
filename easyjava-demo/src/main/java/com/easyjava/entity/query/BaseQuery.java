@@ -12,7 +12,7 @@ public class BaseQuery {
 	private Integer pageSize;
 	private String orderBy;
 
-	private SimplePage getSimplePage() {
+	public SimplePage getSimplePage() {
 		return simplePage;
 	}
 

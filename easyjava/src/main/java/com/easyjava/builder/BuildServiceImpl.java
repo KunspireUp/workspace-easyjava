@@ -82,16 +82,19 @@ public class BuildServiceImpl {
 			bw.write("\tprivate " + mapperName + "<" + tableInfo.getBeanName() + ", " + tableInfo.getBeanParamName() + "> " + mappserBeanName + ";\n\n");
 
 			BuildComment.creatFieldComment(bw, "根据条件查询列表");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic List<" + tableInfo.getBeanName() + "> findListByParam(" + tableInfo.getBeanParamName() + " query) {\n");
 			bw.write("\t\treturn this." + mappserBeanName + ".selectList(query);");
 			bw.write("\t}\n\n");
 
 			BuildComment.creatFieldComment(bw, "根据条件查询数量");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic Integer findCountByParam(" + tableInfo.getBeanParamName() + " query) {\n");
 			bw.write("\t\treturn this." + mappserBeanName + ".selectCount(query);");
 			bw.write("\t}\n\n");
 
 			BuildComment.creatFieldComment(bw, "分页查询");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic PaginationResultVO<" + tableInfo.getBeanName() + "> findListByPage(" + tableInfo.getBeanParamName() + " query) {\n");
 			bw.write("\t\tInteger count = this.findCountByParam(query);\n");
 			bw.write("\t\tInteger pageSize = query.getPageSize() == null ? PageSize.SIZE15.getSize() : query.getPageSize();\n");
@@ -103,11 +106,13 @@ public class BuildServiceImpl {
 			bw.write("\t}\n\n");
 
 			BuildComment.creatFieldComment(bw, "新增");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic Integer add(" + tableInfo.getBeanName() + " bean) {\n");
 			bw.write("\t\treturn this." + mappserBeanName + ".insert(bean);\n");
 			bw.write("\t}\n\n");
 
 			BuildComment.creatFieldComment(bw, "批量新增");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic Integer addBatch(List<" + tableInfo.getBeanName() + "> listBean) {\n");
 			bw.write("\t\tif ((listBean == null) || listBean.isEmpty()) {\n");
 			bw.write("\t\t\treturn 0;\n");
@@ -116,6 +121,7 @@ public class BuildServiceImpl {
 			bw.write("\t}\n\n");
 
 			BuildComment.creatFieldComment(bw, "批量新增或修改");
+			bw.write("\t@Override\n");
 			bw.write("\tpublic Integer addOrUpdateBatch(List<" + tableInfo.getBeanName() + "> listBean) {\n");
 			bw.write("\t\tif ((listBean == null) || listBean.isEmpty()) {\n");
 			bw.write("\t\t\treturn 0;\n");
@@ -149,18 +155,21 @@ public class BuildServiceImpl {
 				}
 				bw.newLine();
 				BuildComment.creatFieldComment(bw, "根据 " + methodName + " 查询");
+				bw.write("\t@Override\n");
 				bw.write("\tpublic " + tableInfo.getBeanName() + " get" + tableInfo.getBeanName() + "By" + methodName + "(" + methodParam + ") {\n");
 				bw.write("\t\treturn this." + mappserBeanName + ".selectBy" + methodName + "(" + paramsBuilder + ");");
 				bw.write("}\n");
 
 				bw.newLine();
 				BuildComment.creatFieldComment(bw, "根据 " + methodName + " 更新");
+				bw.write("\t@Override\n");
 				bw.write("\tpublic Integer update" + tableInfo.getBeanName() + "By" + methodName + "(" + tableInfo.getBeanName() + " bean, " + methodParam + ") {\n");
 				bw.write("\t\treturn this." + mappserBeanName + ".updateBy" + methodName + "(bean, " + paramsBuilder + ");");
 				bw.write("}\n");
 
 				bw.newLine();
 				BuildComment.creatFieldComment(bw, "根据 " + methodName + " 删除");
+				bw.write("\t@Override\n");
 				bw.write("\tpublic Integer delete" + tableInfo.getBeanName() + "By" + methodName + "(" + methodParam + ") {\n");
 				bw.write("\t\treturn this." + mappserBeanName + ".deleteBy" + methodName + "(" + paramsBuilder + ");");
 				bw.write("}\n");
