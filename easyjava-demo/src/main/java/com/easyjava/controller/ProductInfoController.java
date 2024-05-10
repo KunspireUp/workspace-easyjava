@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * @Description: 商品信息 Controller
  * @Author: false
- * @Date: 2024/05/10 17:12:57
+ * @Date: 2024/05/10 17:47:42
  */
 @RestController
 @RequestMapping("/productInfo")
@@ -22,7 +22,7 @@ public class ProductInfoController extends ABaseController{
 	@Resource
 	private ProductInfoService productInfoService;
 
-	@RequestMapping("loadDataList")
+	@RequestMapping("/loadDataList")
 	public ResponseVO loadDataList(ProductInfoQuery query) {
 		return getSuccessResponseVO(productInfoService.findListByPage(query));
 	}
@@ -30,7 +30,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 新增
  	 */
-	@RequestMapping("add")
+	@RequestMapping("/add")
 	public ResponseVO add(ProductInfo bean) {
 		Integer result = this.productInfoService.add(bean);
 		return getSuccessResponseVO(null);
@@ -39,7 +39,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 批量新增
  	 */
-	@RequestMapping("addBatch")
+	@RequestMapping("/addBatch")
 	public ResponseVO addBatch(@RequestBody List<ProductInfo> listBean) {
 		this.productInfoService.addBatch(listBean);
 		return getSuccessResponseVO(null);
@@ -48,7 +48,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 批量新增或修改
  	 */
-	@RequestMapping("addOrUpdateBatch")
+	@RequestMapping("/addOrUpdateBatch")
 	public ResponseVO addOrUpdateBatch(@RequestBody List<ProductInfo> listBean) {
 		this.productInfoService.addOrUpdateBatch(listBean);
 		return getSuccessResponseVO(null);
@@ -57,14 +57,14 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 Id 查询
  	 */
-	@RequestMapping("getProductInfoById")
+	@RequestMapping("/getProductInfoById")
 	public ResponseVO getProductInfoById(Integer id) {
 		return getSuccessResponseVO(productInfoService.getProductInfoById(id));}
 
 	/**
  	 * 根据 Id 更新
  	 */
-	@RequestMapping("updateProductInfoById")
+	@RequestMapping("/updateProductInfoById")
 	public ResponseVO updateProductInfoById(ProductInfo bean, Integer id) {
 		this.productInfoService.updateProductInfoById(bean, id);
 		return getSuccessResponseVO(null);
@@ -73,7 +73,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 Id 删除
  	 */
-	@RequestMapping("deleteProductInfoById")
+	@RequestMapping("/deleteProductInfoById")
 	public ResponseVO deleteProductInfoById(Integer id) {
 		this.productInfoService.deleteProductInfoById(id);
 		return getSuccessResponseVO(null);
@@ -82,14 +82,14 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 Code 查询
  	 */
-	@RequestMapping("getProductInfoByCode")
+	@RequestMapping("/getProductInfoByCode")
 	public ResponseVO getProductInfoByCode(String code) {
 		return getSuccessResponseVO(productInfoService.getProductInfoByCode(code));}
 
 	/**
  	 * 根据 Code 更新
  	 */
-	@RequestMapping("updateProductInfoByCode")
+	@RequestMapping("/updateProductInfoByCode")
 	public ResponseVO updateProductInfoByCode(ProductInfo bean, String code) {
 		this.productInfoService.updateProductInfoByCode(bean, code);
 		return getSuccessResponseVO(null);
@@ -98,7 +98,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 Code 删除
  	 */
-	@RequestMapping("deleteProductInfoByCode")
+	@RequestMapping("/deleteProductInfoByCode")
 	public ResponseVO deleteProductInfoByCode(String code) {
 		this.productInfoService.deleteProductInfoByCode(code);
 		return getSuccessResponseVO(null);
@@ -107,14 +107,14 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 SkuTypeAndColorType 查询
  	 */
-	@RequestMapping("getProductInfoBySkuTypeAndColorType")
+	@RequestMapping("/getProductInfoBySkuTypeAndColorType")
 	public ResponseVO getProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType) {
 		return getSuccessResponseVO(productInfoService.getProductInfoBySkuTypeAndColorType(skuType, colorType));}
 
 	/**
  	 * 根据 SkuTypeAndColorType 更新
  	 */
-	@RequestMapping("updateProductInfoBySkuTypeAndColorType")
+	@RequestMapping("/updateProductInfoBySkuTypeAndColorType")
 	public ResponseVO updateProductInfoBySkuTypeAndColorType(ProductInfo bean, Integer skuType, Integer colorType) {
 		this.productInfoService.updateProductInfoBySkuTypeAndColorType(bean, skuType, colorType);
 		return getSuccessResponseVO(null);
@@ -123,7 +123,7 @@ public class ProductInfoController extends ABaseController{
 	/**
  	 * 根据 SkuTypeAndColorType 删除
  	 */
-	@RequestMapping("deleteProductInfoBySkuTypeAndColorType")
+	@RequestMapping("/deleteProductInfoBySkuTypeAndColorType")
 	public ResponseVO deleteProductInfoBySkuTypeAndColorType(Integer skuType, Integer colorType) {
 		this.productInfoService.deleteProductInfoBySkuTypeAndColorType(skuType, colorType);
 		return getSuccessResponseVO(null);
