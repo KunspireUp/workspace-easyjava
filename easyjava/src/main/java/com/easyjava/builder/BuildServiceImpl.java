@@ -75,7 +75,7 @@ public class BuildServiceImpl {
 
 			BuildComment.creatClassComment(bw, tableInfo.getComment() + " 业务接口实现");
 
-			bw.write("@Service(\"" + StringUtils.lowerCaseFirstLetter(tableInfo.getBeanName()) + "Service\")\n");
+			bw.write("@Service(\"" + mapperName  + "\")\n");
 			bw.write("public class " + className + " implements " + interfaceName + "{\n\n");
 
 			bw.write("\t@Resource\n");
@@ -97,8 +97,8 @@ public class BuildServiceImpl {
 			bw.write("\t\tInteger pageSize = query.getPageSize() == null ? PageSize.SIZE15.getSize() : query.getPageSize();\n");
 			bw.write("\t\tSimplePage page = new SimplePage(query.getPageNo(), count, pageSize);\n");
 			bw.write("\t\tquery.setSimplePage(page);\n");
-			bw.write("\t\tList<ProductInfo> list = this.findListByParam(query);\n");
-			bw.write("\t\tPaginationResultVO<ProductInfo> result = new PaginationResultVO(count, page.getPageSize(), page.getPageNo(), page.getPageTotal(), list);\n");
+			bw.write("\t\tList<" + tableInfo.getBeanName() + "> list = this.findListByParam(query);\n");
+			bw.write("\t\tPaginationResultVO<" + tableInfo.getBeanName() + "> result = new PaginationResultVO(count, page.getPageSize(), page.getPageNo(), page.getPageTotal(), list);\n");
 			bw.write("\t\treturn result;\n");
 			bw.write("\t}\n\n");
 

@@ -14,9 +14,9 @@ import javax.annotation.Resource;
 /**
  * @Description: 商品信息 业务接口实现
  * @Author: false
- * @Date: 2024/03/27 17:31:58
+ * @Date: 2024/05/10 17:12:57
  */
-@Service("productInfoService")
+@Service("ProductInfoMapper")
 public class ProductInfoServiceImpl implements ProductInfoService{
 
 	@Resource

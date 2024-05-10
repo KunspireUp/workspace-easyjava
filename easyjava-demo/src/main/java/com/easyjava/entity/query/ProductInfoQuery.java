@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 /**
  * @Description: 商品信息
  * @Author: false
- * @Date: 2024/03/27 17:31:58
+ * @Date: 2024/05/10 17:12:57
  */
 public class ProductInfoQuery extends BaseQuery {
 	/**
