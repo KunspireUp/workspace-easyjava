@@ -115,7 +115,7 @@ public class BuildMapperXml {
 							stringQuery = " and query." + fieldInfo.getPropertyName() + "!= ''";
 						}
 						bw.write("\t\t<if test=\" query." + fieldInfo.getPropertyName() + " != null" + stringQuery + "\">\n");
-						bw.write("\t\t\tand id = #{query." + fieldInfo.getPropertyName() + "}\n");
+						bw.write("\t\t\tand " + fieldInfo.getFieldName()+  "= #{query." + fieldInfo.getPropertyName() + "}\n");
 						bw.write("\t\t</if>\n");
 
 					}
@@ -199,7 +199,7 @@ public class BuildMapperXml {
 						}
 					}
 					if (autoIncrementFiled != null) {
-						bw.write("\t\t<selectKey keyProperty=\"bean." + autoIncrementFiled.getFieldName() + "\" resultType=\"" + autoIncrementFiled.getJavaType() + "\" order=\"AFTER\">\n");
+						bw.write("\t\t<selectKey keyProperty=\"bean." + autoIncrementFiled.getPropertyName() + "\" resultType=\"" + autoIncrementFiled.getJavaType() + "\" order=\"AFTER\">\n");
 						bw.write("\t\t\tSELECT LAST_INSERT_ID()\n");
 						bw.write("\t\t</selectKey>\n");
 					}

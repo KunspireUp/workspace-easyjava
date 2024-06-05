@@ -7,7 +7,7 @@ import com.easyjava.enums.ResponseCodeEnum;;
  * @Author: KunSpireUp
  * @Date: 3/26/2024 11:25 PM
  */
-public class BusinessException extends Exception {
+public class BusinessException extends RuntimeException {
 
 	private ResponseCodeEnum codeEnum;
 

@@ -37,37 +37,37 @@
 	<!-- 基础查询条件 -->
 	<sql id="base_query_condition">
 		<if test=" query.id != null">
-			and id = #{query.id}
+			and id= #{query.id}
 		</if>
 		<if test=" query.companyId != null and query.companyId!= ''">
-			and id = #{query.companyId}
+			and company_id= #{query.companyId}
 		</if>
 		<if test=" query.code != null and query.code!= ''">
-			and id = #{query.code}
+			and code= #{query.code}
 		</if>
 		<if test=" query.productName != null and query.productName!= ''">
-			and id = #{query.productName}
+			and product_name= #{query.productName}
 		</if>
 		<if test=" query.price != null">
-			and id = #{query.price}
+			and price= #{query.price}
 		</if>
 		<if test=" query.skuType != null">
-			and id = #{query.skuType}
+			and sku_type= #{query.skuType}
 		</if>
 		<if test=" query.colorType != null">
-			and id = #{query.colorType}
+			and color_type= #{query.colorType}
 		</if>
 		<if test=" query.createTime != null">
-			and id = #{query.createTime}
+			and create_time= #{query.createTime}
 		</if>
 		<if test=" query.createDate != null">
-			and id = #{query.createDate}
+			and create_date= #{query.createDate}
 		</if>
 		<if test=" query.stock != null">
-			and id = #{query.stock}
+			and stock= #{query.stock}
 		</if>
 		<if test=" query.status != null">
-			and id = #{query.status}
+			and status= #{query.status}
 		</if>
 	</sql>
 
