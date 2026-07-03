@@ -25,6 +25,7 @@ public class DateUtils {
                             return new SimpleDateFormat(pattern);
                         }
                     };
+                    sdfMap.put(pattern, threadLocal);
                 }
             }
         }
